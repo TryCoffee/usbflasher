@@ -26,7 +26,7 @@ Usb Flasher is a simple, cross-platform utility for flashing ISO images onto USB
 ### Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/usb-flasher.git
+git clone https://github.com/TryCoffee/usb-flasher.git
 cd usb-flasher
 python3 main.py
 ```
