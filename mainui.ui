@@ -6,115 +6,280 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>592</width>
-    <height>400</height>
+    <width>620</width>
+    <height>560</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>540</width>
+    <height>520</height>
+   </size>
+  </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>USB Flasher</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QComboBox" name="comboBox">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>30</y>
-      <width>311</width>
-      <height>31</height>
-     </rect>
+   <layout class="QVBoxLayout" name="mainLayout">
+    <property name="spacing">
+     <number>12</number>
     </property>
-   </widget>
-   <widget class="QPushButton" name="refresh">
-    <property name="geometry">
-     <rect>
-      <x>420</x>
-      <y>30</y>
-      <width>88</width>
-      <height>34</height>
-     </rect>
+    <property name="leftMargin">
+     <number>16</number>
     </property>
-    <property name="text">
-     <string>Refresh</string>
+    <property name="topMargin">
+     <number>16</number>
     </property>
-   </widget>
-   <widget class="QPushButton" name="iso">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>90</y>
-      <width>441</width>
-      <height>31</height>
-     </rect>
+    <property name="rightMargin">
+     <number>16</number>
     </property>
-    <property name="text">
-     <string>Choose image file</string>
+    <property name="bottomMargin">
+     <number>16</number>
     </property>
-   </widget>
-   <widget class="QLineEdit" name="choosenfile">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>140</y>
-      <width>311</width>
-      <height>32</height>
-     </rect>
-    </property>
-    <property name="readOnly">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QWidget" name="horizontalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>390</x>
-      <y>140</y>
-      <width>121</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QRadioButton" name="gpt">
-       <property name="text">
-        <string>GPT</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QRadioButton" name="mbr">
-       <property name="text">
-        <string>MBR</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QPushButton" name="flash">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>190</y>
-      <width>491</width>
-      <height>141</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>FLASH!</string>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>592</width>
-     <height>30</height>
-    </rect>
-   </property>
+    <item>
+     <widget class="QGroupBox" name="deviceBox">
+      <property name="title">
+       <string>Target device</string>
+      </property>
+      <layout class="QHBoxLayout" name="deviceLayout">
+       <item>
+        <widget class="QComboBox" name="deviceCombo">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+           <horstretch>1</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>32</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="refreshButton">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Refresh</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="imageBox">
+      <property name="title">
+       <string>Image file</string>
+      </property>
+      <layout class="QHBoxLayout" name="imageLayout">
+       <item>
+        <widget class="QLineEdit" name="imagePathEdit">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="placeholderText">
+          <string>No image selected</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="browseButton">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Browse…</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="modeBox">
+      <property name="title">
+       <string>Write mode</string>
+      </property>
+      <layout class="QVBoxLayout" name="modeLayout">
+       <item>
+        <widget class="QRadioButton" name="modeImageRadio">
+         <property name="text">
+          <string>Write image to device (recommended)</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+         <attribute name="buttonGroup">
+          <string notr="true">modeGroup</string>
+         </attribute>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="modeImageHint">
+         <property name="text">
+          <string>Byte-for-byte copy. The image brings its own partition table.</string>
+         </property>
+         <property name="indent">
+          <number>26</number>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="modeFilesRadio">
+         <property name="text">
+          <string>Format device and copy files</string>
+         </property>
+         <attribute name="buttonGroup">
+          <string notr="true">modeGroup</string>
+         </attribute>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="modeFilesHint">
+         <property name="text">
+          <string>Creates one FAT32 partition and copies the image contents onto it. Boots on UEFI systems only.</string>
+         </property>
+         <property name="indent">
+          <number>26</number>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="tableLayout">
+         <property name="leftMargin">
+          <number>26</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="tableLabel">
+           <property name="text">
+            <string>Partition table:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="tableGptRadio">
+           <property name="text">
+            <string>GPT</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+           <attribute name="buttonGroup">
+            <string notr="true">tableGroup</string>
+           </attribute>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="tableMbrRadio">
+           <property name="text">
+            <string>MBR</string>
+           </property>
+           <attribute name="buttonGroup">
+            <string notr="true">tableGroup</string>
+           </attribute>
+          </widget>
+         </item>
+         <item>
+          <spacer name="tableSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>8</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QPushButton" name="flashButton">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>64</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>FLASH</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QProgressBar" name="progressBar">
+      <property name="value">
+       <number>0</number>
+      </property>
+      <property name="textVisible">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="statusLabel">
+      <property name="text">
+       <string>Ready.</string>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>
+ <buttongroups>
+  <buttongroup name="tableGroup"/>
+  <buttongroup name="modeGroup"/>
+ </buttongroups>
 </ui>
