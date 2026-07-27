@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=USB Flasher
+GenericName=USB Image Writer
+Comment=Write disk images to USB drives
+Exec=python3 /path/to/usbflasher/main.py
+Icon=drive-removable-media-usb
+Terminal=false
+Categories=System;Filesystem;
+Keywords=USB;ISO;IMG;image;flash;write;bootable;installer;
+StartupNotify=true
+StartupWMClass=usbflasher
